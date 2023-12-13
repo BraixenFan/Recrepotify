@@ -162,11 +162,10 @@ button{
 }
 
 .song-row-name{
-  flex-basis: 30%;
+  
 }
 
 .song-row-hears{
-  flex-basis: 15%;
   color: #aaa;
 }
 
