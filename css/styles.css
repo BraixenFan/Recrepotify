@@ -34,7 +34,7 @@ body{
   cursor: pointer;
 }
 
-.mini-artist{
+.mini-artist a{
   display: flex;
   align-items: center;
   gap: 10px;
