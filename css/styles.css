@@ -22,15 +22,35 @@ body{
   background-color: #121212;
 }
 
-.page-btns{
+.page-btns, .other-artists{
   background-color: #121212;
   color: #fff;
   padding: 15px 25px;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .page-btns h2:hover,h3:hover{
   cursor: pointer;
+}
+
+.mini-artist{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.mini-artist:hover{
+  background-color:#7777773f;
+  cursor: pointer;
+}
+
+.Artist-Thumbnail{
+  height: 100%;
+  border-radius: 20px;
 }
 
 h1{
