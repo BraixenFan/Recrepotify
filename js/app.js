@@ -40,14 +40,20 @@ let sortedSongs;
 let totdurat = 0;
 
 function orderAlf() {
-    sortedSongs = songs.sort((a, b) => a.name - b.name)
+    sortedSongs = songs.sort(function (a, b) {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0;})
     console.log(sortedSongs);
 }
 
 function showdurat() {
-    for (var i = 0; i < songs.length; i++) {
-        totdurat = totdurat + songs[i].duration;
-    }
+    songs.forEach((song) => totdurat = totdurat + song.duration);
+    
     console.log("La duracion total de las canciones es de " + totdurat + " segundos");
     totdurat = 0; //Reset after count finanilization
 }
