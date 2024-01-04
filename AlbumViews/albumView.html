@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Spotifyn't</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Spotifyn't</title>
 </head>
+
 <body>
   <div class="big-div">
     <div class="side-bar">
@@ -17,14 +19,14 @@
       <div class="other-artists">
         <h3>Tu biblioteca</h3>
         <div class="mini-artist">
-          <a href="index_Grid.html">
-            <img class="Artist-Thumbnail" src="src/img/CoolTaylor.jpeg">
+          <a href="../indexAlts/index_Grid.html">
+            <img class="Artist-Thumbnail" src="../src/img/CoolTaylor.jpeg">
             <p>Taylor Swift</p>
           </a>
         </div>
         <div class="mini-artist">
-          <a href="index_Table.html">
-            <img class="Artist-Thumbnail" src="src/img/CoolDaft.jpg">
+          <a href="../indexAlts/index_Table.html">
+            <img class="Artist-Thumbnail" src="../src/img/CoolDaft.jpg">
             <p>Daft Punk</p>
           </a>
         </div>
@@ -32,7 +34,7 @@
     </div>
     <div class="main-page">
       <div class="album-detailed">
-        <img class="detailed-album-img" src="src/img/AlbumArt3.jpeg">
+        <img class="detailed-album-img" src="../src/img/AlbumArt3.jpeg">
         <div class="album-values">
           <h2 class="detailed-album-title">After Hours</h2>
           <p class="detailed-album-details">Álbum • 2020 • 14 canciones</p>
@@ -46,7 +48,7 @@
       <div class="top-songs">
         <div class="song-row">
           <p class="song-row-num">‎ 1 ‎</p>
-          <div class="song-row-details"> 
+          <div class="song-row-details">
             <p class="song-row-name">Alone again</p>
             <p class="song-row-artists">🅴 The Weekend</p>
           </div>
@@ -56,7 +58,7 @@
         </div>
         <div class="song-row">
           <p class="song-row-num">‎ 2 ‎</p>
-          <div class="song-row-details"> 
+          <div class="song-row-details">
             <p class="song-row-name">Too late</p>
             <p class="song-row-artists">🅴 The Weekend</p>
           </div>
@@ -66,7 +68,7 @@
         </div>
         <div class="song-row">
           <p class="song-row-num">‎ 3 ‎</p>
-          <div class="song-row-details"> 
+          <div class="song-row-details">
             <p class="song-row-name">Hardest to love</p>
             <p class="song-row-artists">🅴 The Weekend</p>
           </div>
@@ -76,7 +78,7 @@
         </div>
         <div class="song-row">
           <p class="song-row-num">‎ 4 ‎</p>
-          <div class="song-row-details"> 
+          <div class="song-row-details">
             <p class="song-row-name">Save your tears Remix</p>
             <p class="song-row-artists">The Weekend, Ariana Grande</p>
           </div>
@@ -86,7 +88,7 @@
         </div>
         <div class="song-row">
           <p class="song-row-num">‎ 5 ‎</p>
-          <div class="song-row-details"> 
+          <div class="song-row-details">
             <p class="song-row-name">Scared to Live</p>
             <p class="song-row-artists">🅴 The Weekend</p>
           </div>
@@ -95,18 +97,19 @@
           <p class="song-row-opt">…</p>
         </div>
         <div class="song-row">
-        <p class="song-row-num">‎ 6 ‎</p>
-        <div class="song-row-details"> 
-          <p class="song-row-name">After hours</p>
-          <p class="song-row-artists">The Weekend</p>
+          <p class="song-row-num">‎ 6 ‎</p>
+          <div class="song-row-details">
+            <p class="song-row-name">After hours</p>
+            <p class="song-row-artists">The Weekend</p>
+          </div>
+          <p class="song-row-heart">♡</p>
+          <p class="song-row-durat">6:01</p>
+          <p class="song-row-opt">…</p>
         </div>
-        <p class="song-row-heart">♡</p>
-        <p class="song-row-durat">6:01</p>
-        <p class="song-row-opt">…</p>
+        <button class="order-button" onclick="orderAlf()"> Ordenar alfabeticamente </button>
+        <button class="order-button" onclick="showdurat()"> Mostrar duración </button>
       </div>
-      <button class="order-button" onclick="orderAlf()"> Ordenar alfabeticamente </button>
-      <button class="order-button" onclick="showdurat()"> Mostrar duración </button>
-    </div>
-  <script src="js/app.js"></script>
+      <script src="../js/app.js"></script>
 </body>
+
 </html>
