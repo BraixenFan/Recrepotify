@@ -1,5 +1,4 @@
 const body = document.body;
-
 const mainpage = body.querySelector(".main-page");
 
 const data = {
@@ -1396,77 +1395,45 @@ function createAlbum(position) {
   console.log(Album);
   console.log(Songs);
 
-  const albumElement = document.createElement("div");
+  const albumElement = developElement("div");
 
-  const albumHeader = document.createElement("div")
-  albumHeader.classList.add("album-detailed");
+  const albumHeader = developElement("div", "album-detailed");
 
-  //This is the beginning of the image
-  const albumImg = document.createElement("img");
-  albumImg.classList.add("detailed-album-img");
-  albumImg.setAttribute("src", Album.coverArt.sources[0].url);
-  //This is the end of the image
+  const albumImg = developElement("img", "detailed-album-img", null, "src", Album.coverArt.sources[0].url);
 
-  //This is the beginning of the Album Values
-  const albumValues = document.createElement("div");
-  albumValues.classList.add("album-values");
-
-  const AlbumTitle = document.createElement("h2");
-  AlbumTitle.classList.add("detailed-album-title");
-  AlbumTitle.textContent = Album.name;
-
-  const AlbumDetails = document.createElement("p");
-  AlbumDetails.classList.add("detailed-album-details");
-  AlbumDetails.textContent = `${Album.type.toLocaleLowerCase()} ● ${Album.date.year} ● ${Album.tracks.items.length} canciones`
-
+  const albumValues = developElement("div", "album-values");
+  const AlbumTitle = developElement("h2", "detailed-album-title", Album.name);
+  const AlbumDetails = developElement("p", "detailed-album-details", `${Album.type.toLocaleLowerCase()} ● ${Album.date.year} ● ${Album.tracks.items.length} canciones`);
   albumValues.append(AlbumTitle, AlbumDetails, createAlbBtns());
-  //This is the end of the Album Values
   albumHeader.append(albumImg, albumValues);
 
-  const albumSongs = document.createElement("div");
-  albumSongs.classList.add("top-songs");
+  const albumSongs = developElement("div", "top-songs");
 
   Songs.forEach((element) => {
     const { track } = element;
     const { items: artists } = element.track.artists;
-    const SongRow = document.createElement("div");
-    SongRow.classList.add("song-row");
 
-    const SongRowNum = document.createElement("p");
-    SongRowNum.classList.add("song-row-num");
-    SongRowNum.textContent = `‎ ${track.trackNumber} ‎`
+    const SongRow = developElement("div", "song-row");
+
+    const SongRowNum = developElement("p", "song-row-num", `‎ ${track.trackNumber} ‎`);
 
     //This is the beginning of Song row details
-    const SongRowDetails = document.createElement("div");
-    SongRowDetails.classList.add("song-row-details");
-
-    const SongRowName = document.createElement("p");
-    SongRowName.classList.add("song-row-name");
-    SongRowName.textContent = track.name;
-
-    const SongRowArtists = document.createElement("p");
-    SongRowArtists.classList.add("song-row-artists");
-
+    const SongRowDetails = developElement("div", "song-row-details");
+    const SongRowName = developElement("p", "song-row-name", track.name);
+    const SongRowArtists = developElement("p", "song-row-artists");
     artists.forEach((artist) => { SongRowArtists.textContent += artist.profile.name });
 
     SongRowDetails.append(SongRowName, SongRowArtists);
     //This is the end of Song row details
 
-    const SongRowHeart = document.createElement("p");
-    SongRowHeart.classList.add("song-row-heart");
-    SongRowHeart.textContent = "♡";
+    const SongRowHeart = developElement("p", "song-row-heart", "♡");
 
     let songTimeSec = track.duration.totalMilliseconds / 1000;
     let songTimeMin = track.duration.totalMilliseconds / 60000;
     let songTime = `${Math.floor(songTimeMin)}:${Math.floor(songTimeSec % 60)}`;
-    const SongRowDurat = document.createElement("p");
-    SongRowDurat.classList.add("song-row-durat");
-    SongRowDurat.textContent = songTime;
+    const SongRowDurat = developElement("p", "song-row-durat", songTime);
 
-    const SongRowOpt = document.createElement("p");
-    SongRowOpt.classList.add("song-row-opt");
-    SongRowOpt.textContent = "…";
-
+    const SongRowOpt = developElement("p", "song-row-opt", "…");
     SongRow.append(SongRowNum, SongRowDetails, SongRowHeart, SongRowDurat, SongRowOpt);
 
     albumSongs.append(SongRow);
@@ -1475,6 +1442,16 @@ function createAlbum(position) {
   albumElement.append(albumHeader, albumSongs);
 
   return albumElement;
+}
+
+function developElement(tag, classname, text, attributename, attributevalue) {
+  const newElement = document.createElement(tag);
+
+  if (classname != null) newElement.classList.add(classname);
+  if (text != null) newElement.textContent = text;
+  if (attributename != null && attributevalue != null) newElement.setAttribute(attributename, attributevalue);
+
+  return newElement;
 }
 
 function createAlbBtns() {
@@ -1498,5 +1475,4 @@ function createAlbBtns() {
 }
 
 const { items } = data.artistUnion.discography.albums;
-
 items.forEach((element, index) => mainpage.append(createAlbum(index)));
