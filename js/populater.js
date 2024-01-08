@@ -1428,10 +1428,7 @@ function createAlbum(position) {
 
     const SongRowHeart = developElement("p", "song-row-heart", "♡");
 
-    let songTimeSec = track.duration.totalMilliseconds / 1000;
-    let songTimeMin = track.duration.totalMilliseconds / 60000;
-    let songTime = `${Math.floor(songTimeMin)}:${Math.floor(songTimeSec % 60)}`;
-    const SongRowDurat = developElement("p", "song-row-durat", songTime);
+    const SongRowDurat = developElement("p", "song-row-durat", formatDuration(track.duration.totalMilliseconds));
 
     const SongRowOpt = developElement("p", "song-row-opt", "…");
     SongRow.append(SongRowNum, SongRowDetails, SongRowHeart, SongRowDurat, SongRowOpt);
@@ -1472,6 +1469,14 @@ function createAlbBtns() {
 
   albumOpts.append(playBtn, fllwBtn, extOptBtn);
   return albumOpts;
+}
+
+function formatDuration(milliseconds) {
+  const minutes = `${new Date(milliseconds).getMinutes()}`.slice(-2);
+  const seconds = `0${new Date(milliseconds).getSeconds()}`.slice(-2);
+
+  const time = `${minutes}:${seconds}`
+  return time;
 }
 
 const { items } = data.artistUnion.discography.albums;
